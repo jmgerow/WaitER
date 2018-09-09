@@ -41,60 +41,24 @@
 
 
 <div class="container">
-  <div class="row center" id="logo">
-    <div class="col s0 m12 xl12">
-      <img class="responsive-img" src="images/waitER-logo.PNG" height="160px">
-    </div>
+  <div class="row" id="title">
+    Please choose a hospital from the list below:
   </div>
-  {{!-- user input --}}
-  <div class="row">
-    <div class="col s0 xl2" id="spacer-div">
+
+  <div class="row s12" id="hospital-display"> 
+    <div class="col s3">
+        Hospital Name
     </div>
-    <form class="col s12 xl8" id="user-login">
-      <div class="row">
-        <div class="input-field col s12 m3 xl3">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s12 m3 xl3">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6 xl6">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-        <div class="input-field col s12 m6 xl6">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6 xl6">
-          <select>
-            <option value="" disabled selected>Reason for Visit</option>
-            <option value="1">Broken Bone</option>
-            <option value="2">Flu Symptoms</option>
-            <option value="3">Fever</option>
-            <option value="3">Severe Headache</option>
-            <option value="3">Dizziness</option>
-          </select>
-        </div>
-        <div class="input-field col s12 m6 xl6">
-          <select>
-            <option value="" disabled selected>Insurance Provider</option>
-            <option value="1">Blue Cross Blue Shield</option>
-            <option value="2">Aetna</option>
-            <option value="3">United Healthcare</option>
-          </select>
-        </div>
-      </div>
-      <button class="btn waves-effect waves-light red darken-3" type="submit" name="action">Submit
-        <i class="material-icons right">add_box</i>
-      </button>
-    </form>
+    <div class="col s3">
+        Hospital Location
+    </div>
+    <div class="col s3">
+        Wait Time
+    </div>
+    <div class="col s3">
+        Map
+    </div>
+    <hr>
   </div>
 
 </div>
