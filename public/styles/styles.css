@@ -1,3 +1,62 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
+
+
+.nav-link {
+  color: #546e7a;
+  
+}
+
+#logo {
+  margin-top: 50px;
+}
+
+#title {
+  margin-top: 20px;
+  font-size: 40px;
+}
+
+#hospital-display{
+  margin-top: 30px;
+  margin-bottom: 400px;
+}
+
+#user-login {
+  background-color: rgb(238, 238, 238);
+  padding:15px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+ /* label color */
+ .input-field label {
+  color: #000;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: rgb(153, 22, 22);
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid rgb(230, 73, 73);
+  box-shadow: 0 1px 0 0 rgb(230, 73, 73);
+}
+
+footer {
+  margin-top: 100px;    
+  }
+
+
+@media (max-width: 40em) {
+  #logo {
+  display: none;
+  }
+  }
