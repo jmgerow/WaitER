@@ -102,4 +102,5 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
 $(document).ready(function() {
   $(".sidenav").sidenav();
   $("select").formSelect();
+  $(".parallax").parallax();
 });
