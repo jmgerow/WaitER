@@ -1,5 +1,13 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS northwestern;
+CREATE DATABASE northwestern;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+DROP DATABASE IF EXISTS universityofchicago;
+CREATE DATABASE universityofchicago;
+
+DROP DATABASE IF EXISTS rush;
+CREATE DATABASE rush;
+DROP DATABASE IF EXISTS loyolaMedicalCenter;
+CREATE DATABASE loyolaMedicalCenter
+
+DROP DATABASE IF EXISTS userInfo;
+CREATE DATABASE userInfo;
