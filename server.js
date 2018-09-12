@@ -2,16 +2,58 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var session = require("express-session");
+var Auth0Strategy = require("passport-auth0"),
+  passport = require("passport");
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+var strategy = new Auth0Strategy(
+  {
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    callbackURL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+  },
+  function(accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  }
+);
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+//session-related stuff
+var sess = {
+  secret: "CHANGE THIS SECRET",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true
+};
+
+if (app.get("env") === "production") {
+  sess.cookie.secure = true; // serve secure cookies, requires https
+}
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(session(sess));
+passport.use(strategy);
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 // Handlebars
 app.engine(
@@ -25,6 +67,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/authRoutes")(app, passport, ensureLoggedIn);
 
 var syncOptions = { force: false };
 
