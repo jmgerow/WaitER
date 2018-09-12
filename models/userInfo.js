@@ -3,8 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     patientFirst: DataTypes.STRING,
     patientLast: DataTypes.STRING,
     patientFull: DataTypes.STRING,
-    patientEmail: DataTypes.string,
-    patientPassword: DataTypes.string,
+    patientEmail: DataTypes.STRING,
+    patientPassword: DataTypes.STRING,
     patientInsurance: DataTypes.STRING,
     reasonForVist: DataTypes.TEXT
   });
