@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var userInfo = sequelize.define("waitER", {
+  var userInfo = sequelize.define("userInfo", {
     patientFirst: DataTypes.STRING,
     patientLast: DataTypes.STRING,
     patientFull: DataTypes.STRING,

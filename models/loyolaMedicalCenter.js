@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-  var userInfo = sequelize.define("waitER", {
+  var loyolaMedicalCenter = sequelize.define("loyolaMedicalCenter", {
     patientFirst: DataTypes.STRING,
     patientLast: DataTypes.STRING,
     patientFull: DataTypes.STRING,
     patientInsurance: DataTypes.STRING,
     reasonForVist: DataTypes.TEXT
   });
-  return userInfo;
+  return loyolaMedicalCenter;
 };
