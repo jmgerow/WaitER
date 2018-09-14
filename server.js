@@ -28,7 +28,7 @@ var PORT = process.env.PORT || 3000;
 
 //session-related stuff
 var sess = {
-  secret: "CHANGE THIS SECRET",
+  secret: "SHHHHHH",
   cookie: {},
   resave: false,
   saveUninitialized: true
@@ -55,6 +55,14 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
+app.use(function(req, res, next) {
+  res.locals.loggedIn = false;
+  if (req.session.passport && typeof req.session.passport.user != 'undefined') {
+    res.locals.loggedIn = true;
+  }
+  next();
+});
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -66,8 +74,7 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-require("./routes/authRoutes")(app, passport, ensureLoggedIn);
+require("./routes/htmlRoutes")(app, passport, ensureLoggedIn);
 
 var syncOptions = { force: false };
 

@@ -1,33 +1,44 @@
-module.exports = function(app, passport, ensureLoggedIn) {
+const express = require('express');
+const passport = require('passport');
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+const router = express.Router();
 
-// Perform the login, after login Auth0 will redirect to callback
-app.get("/login",
-  passport.authenticate("auth0", {scope: "openid email profile"}), function (req, res) {
-  res.redirect("/");
-});
-
-// Perform the final stage of authentication and redirect to '/user'
-app.get("/callback",
-  passport.authenticate("auth0", { failureRedirect: "/login" }),
+router.get("/login", passport.authenticate("auth0", {
+  scope: "openid email profile"}),
   function(req, res) {
-    if (!req.user) {
-      throw new Error("user null");
-    }
-    res.redirect("/user");
-  }
-);
-
-/* GET user profile. */
-app.get("/user", ensureLoggedIn, function(req, res, next) {
-  res.render("user", {
-    user: req.user ,
-    userProfile: JSON.stringify(req.user, null, "  ")
-  });
+    res.redirect("/");
 });
 
-// Perform session logout and redirect to homepage
-app.get("/logout", (req, res) => {
+router.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });
-};
+
+router.get("/callback",
+  passport.authenticate("auth0", {
+    failureRedirect: "/failure"
+  }),
+  function(req, res) {
+    res.redirect(req.session.returnTo || "/user");
+  }
+);
+
+router.get("/failure", function(req, res) {
+  var error = req.flash("error");
+  var error_description = req.flash("error_description");
+  req.logout();
+  res.render('failure', {
+    error: error[0],
+    error_description: error_description[0],
+  });
+});
+
+/* GET user profile. */
+router.get('/', ensureLoggedIn, function(req, res, next) {
+  res.render('user', {
+    user: req.user ,
+    userProfile: JSON.stringify(req.user, null, '  ')
+  });
+});
+
+module.exports = router;
