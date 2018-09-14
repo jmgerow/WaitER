@@ -3,6 +3,7 @@
     "username": "root",
     "password": "password",
     "database": "waitER",
+    "port": 330,
     "host": "localhost",
     "dialect": "mysql"
   },
