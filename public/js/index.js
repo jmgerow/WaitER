@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
@@ -98,7 +100,6 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-$(document).ready(function() {
   //materialize js initialize
   $(".sidenav").sidenav();
   $("select").formSelect();
