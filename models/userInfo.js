@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var userInfo = sequelize.define("userInfo", {
+  var UserInfo = sequelize.define("UserInfo", {
     patientFirst: DataTypes.STRING,
     patientLast: DataTypes.STRING,
     patientEmail: DataTypes.STRING,
@@ -7,5 +7,5 @@ module.exports = function(sequelize, DataTypes) {
     patientInsurance: DataTypes.STRING,
     reasonForVisit: DataTypes.TEXT
   });
-  return userInfo;
+  return UserInfo;
 };
