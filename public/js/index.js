@@ -141,7 +141,7 @@ $exampleList.on("click", ".delete", handleDeleteBtnClick);
       };
 
       console.log(userInput);
-      newUser();
+      newUser(userInput);
       // AJAX post to update friends API
       function newUser(userInput) {
         $.post("/api/userinfo", userInput)
