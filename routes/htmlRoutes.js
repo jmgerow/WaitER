@@ -8,6 +8,7 @@ module.exports = function (app, passport, ensureLoggedIn) {
     });
   });
 
+  // Start Auth0 Login
   app.get("/login", passport.authenticate("auth0", {
     scope: "openid email profile"
   }),
@@ -15,33 +16,39 @@ module.exports = function (app, passport, ensureLoggedIn) {
       res.redirect("/");
     });
 
+  // Path to logout user
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
+    // Path to to use after successful login
   app.get("/callback",
     passport.authenticate("auth0", {
-      failureRedirect: "/failure"
+      failureRedirect: "/login"
     }),
     function (req, res) {
       res.redirect(req.session.returnTo || "/user");
     }
   );
 
-  /* GET user profile. */
+  // Get user profile
   app.get('/', ensureLoggedIn, function (req, res, next) {
-    res.render('user', {
+    res.render('index', { // TO BE UPDATED TO PROFILE PAGE ONCE UPDATED
       user: req.user,
       userProfile: JSON.stringify(req.user, null, '  ')
     });
   });
 
+  // Hospital list selection page
   app.get("/waitER", function (req, res) {
     res.render("waitER");
   });
 
-  // Load example page and pass in an example by id
+  // Page listed after login (currently just the default page until user profile built)
+  app.get("/user", function (req, res) {
+    res.render("index");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {

@@ -28,7 +28,7 @@ var PORT = process.env.PORT || 3000;
 
 //session-related stuff
 var sess = {
-  secret: "SHHHHHH",
+  secret: process.env.AUTH0_CLIENT_ID,
   cookie: {},
   resave: false,
   saveUninitialized: true
