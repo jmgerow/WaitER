@@ -65,4 +65,10 @@ $(document).ready(function() {
     event.preventDefault();
     window.location.href = "/login";
   });
+
+  $("#reserve-appt").on("click", function(event) {
+    event.preventDefault();
+    window.location.href = "/user";
+  });
+
 });
