@@ -52,4 +52,13 @@ $(document).ready(function () {
       alert("Please enter all fields before proceeding");
     }
   });
+
+  //on click for get started button
+  $("#get-started").on("click", function (event) {
+    event.preventDefault();
+    window.location.href = "/login";
+  });
+
 });
+
+
