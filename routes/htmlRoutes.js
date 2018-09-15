@@ -46,6 +46,11 @@ module.exports = function (app, passport, ensureLoggedIn) {
     res.render("waitER");
   });
 
+   // Hospital list selection page
+   app.get("/rush", function (req, res) {
+    res.render("rush");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");
