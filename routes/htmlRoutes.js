@@ -38,6 +38,7 @@ module.exports = function (app, passport, ensureLoggedIn) {
       user: req.user,
       userProfile: JSON.stringify(req.user, null, '  ')
     });
+    
   });
 
   // Hospital list selection page

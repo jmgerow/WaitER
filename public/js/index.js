@@ -37,12 +37,6 @@ $(document).ready(function () {
         zipCode: $("#zip_code")
           .val()
           .trim(),
-        email: $("#email")
-          .val()
-          .trim(),
-        password: $("#password")
-          .val()
-          .trim(),
         reasonForVisit: $("#reasonForVisit").val(),
         insuranceProvider: $("#insurance-provider").val()
       };
