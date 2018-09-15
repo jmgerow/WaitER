@@ -28,6 +28,10 @@ body {
   font-size: 40px;
 }
 
+#hospital-title {
+  margin-top: 20px;
+}
+
 #hospital-display{
   margin-top: 30px;
   margin-bottom: 400px;
@@ -66,9 +70,6 @@ footer {
 
 @media (max-width: 40em) {
   #logo {
-  display: none;
-  }
-  #index-banner {
   display: none;
   }
   }
