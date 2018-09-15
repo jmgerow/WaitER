@@ -46,6 +46,8 @@ $(document).ready(function() {
       localStorage.setItem("firstName", userInput.firstName);
       localStorage.setItem("lastName", userInput.lastName);
       localStorage.setItem("zipCode", userInput.zipCode);
+      localStorage.setItem("email", userProfile);
+
 
       newUser(userInput);
 
