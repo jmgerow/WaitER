@@ -16,8 +16,8 @@ module.exports = function (app, passport, ensureLoggedIn) {
       res.redirect("/");
     });
 
-    // Path to to use after successful login
-    app.get("/callback",
+  // Path to to use after successful login
+  app.get("/callback",
     passport.authenticate("auth0", {
       failureRedirect: "/login"
     }),
@@ -38,7 +38,7 @@ module.exports = function (app, passport, ensureLoggedIn) {
       user: req.user,
       userProfile: JSON.stringify(req.user, null, '  ')
     });
-    
+
   });
 
   // Hospital list selection page
@@ -46,9 +46,24 @@ module.exports = function (app, passport, ensureLoggedIn) {
     res.render("waitER");
   });
 
-   // Hospital list selection page
-   app.get("/rush", function (req, res) {
+  // Hospital list selection page
+  app.get("/northwestern", function (req, res) {
+    res.render("northwestern");
+  });
+
+  // Hospital list selection page
+  app.get("/rush", function (req, res) {
     res.render("rush");
+  });
+
+  // Hospital list selection page
+  app.get("/loyolaMedicalCenter", function (req, res) {
+    res.render("loyolaMedicalCenter");
+  });
+
+  // Hospital list selection page
+  app.get("/universityOfChicago", function (req, res) {
+    res.render("universityOfChicago");
   });
 
   // Render 404 page for any unmatched routes
