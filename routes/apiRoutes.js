@@ -11,7 +11,8 @@ module.exports = function (app) {
       patientEmail: req.body.email,
       patientPassword: req.body.password,
       patientInsurance: req.body.insuranceProvider,
-      reasonForVisit: req.body.reasonForVisit
+      reasonForVisit: req.body.reasonForVisit,
+      zipCode: req.body.zipCode
     })
       .then(function (dbUserInfo) {
         res.json(dbUserInfo);

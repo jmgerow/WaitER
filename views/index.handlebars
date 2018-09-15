@@ -1,7 +1,7 @@
 {{!-- navbar --}}
 <nav class="white">
   <div class="container nav-wrapper white">
-    <a href="index.html" class="brand-logo blue-grey-text text-darken-1">
+    <a href="/" class="brand-logo blue-grey-text text-darken-1">
       <img src="images/waitER-logo.PNG" height="40">
     </a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-grey-text text-darken-1">
@@ -18,12 +18,12 @@
         <a href="resume.html" class="nav-link">My Profile</a>
       </li>
       <li>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="/waitER" class="nav-link">Hospitals</a>
       </li>
     </ul>
   </div>
 </nav>
-
+{{!-- sidenav --}}
 <ul class="sidenav" id="mobile-demo">
   <li>
     <a href="/">Home</a>
@@ -35,7 +35,7 @@
     <a href="resume.html">My Profile</a>
   </li>
   <li>
-    <a href="contact.html">Contact</a>
+    <a href="/waitER">Hospitals</a>
   </li>
 </ul>
 
@@ -82,6 +82,10 @@
           <input id="last_name" type="text" class="validate">
           <label for="last_name">Last Name</label>
         </div>
+        <div class="input-field col s12 m3 xl3">
+          <input id="zip_code" type="text" data-length="5" class="validate">
+          <label for="zip_code">Zip Code</label>
+        </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m6 xl6">
@@ -113,7 +117,8 @@
           </select>
         </div>
       </div>
-      <button class="btn waves-effect waves-light red darken-3" type="submit" name="action" id="find-hospitals">Find Hospital
+      <button class="btn waves-effect waves-light red darken-3" type="submit" name="action" id="find-hospitals">Find
+        Hospital
         <i class="material-icons right">add_box</i>
       </button>
     </form>
@@ -129,7 +134,3 @@
     </div>
   </div>
 </footer>
-
-
-
-

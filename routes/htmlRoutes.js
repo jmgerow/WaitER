@@ -22,7 +22,7 @@ module.exports = function (app, passport, ensureLoggedIn) {
     res.redirect("/");
   });
 
-    // Path to to use after successful login
+  // Path to to use after successful login
   app.get("/callback",
     passport.authenticate("auth0", {
       failureRedirect: "/login"
