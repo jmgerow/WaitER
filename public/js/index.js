@@ -6,18 +6,18 @@ $(document).ready(function () {
   $(".parallax").parallax();
 
   //on click for find hospital button with validation
-  $("#find-hospitals").on("click", function(event) {
+  $("#find-hospitals").on("click", function (event) {
     event.preventDefault();
     function validateInput() {
       var isValid = true;
 
-      $(".validate").each(function() {
+      $(".validate").each(function () {
         if ($(this).val() === "") {
           isValid = false;
         }
       });
 
-      $(".select").each(function() {
+      $(".select").each(function () {
         if ($(this).val() === "") {
           isValid = false;
         }
@@ -34,6 +34,9 @@ $(document).ready(function () {
         lastName: $("#last_name")
           .val()
           .trim(),
+        zipCode: $("#zip_code")
+          .val()
+          .trim(),
         email: $("#email")
           .val()
           .trim(),
@@ -48,8 +51,8 @@ $(document).ready(function () {
       newUser(userInput);
       // AJAX post to update friends API
       function newUser(userInput) {
-        $.post("/api/userinfo", userInput);
-        // .then(getAuthors);
+        $.post("/api/userinfo", userInput)
+          .then(window.location.href = "/waitER");
       }
     } else {
       alert("Please enter all fields before proceeding");

@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     patientEmail: DataTypes.STRING,
     patientPassword: DataTypes.STRING,
     patientInsurance: DataTypes.STRING,
-    reasonForVisit: DataTypes.STRING
+    reasonForVisit: DataTypes.STRING,
+    zipCode: DataTypes.INTEGER
   });
   return UserInfo;
 };
