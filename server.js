@@ -3,9 +3,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var session = require("express-session");
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var Auth0Strategy = require("passport-auth0"),
   passport = require("passport");
-var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+
 var strategy = new Auth0Strategy(
   {
     domain: process.env.AUTH0_DOMAIN,

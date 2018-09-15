@@ -16,25 +16,26 @@ module.exports = function (app, passport, ensureLoggedIn) {
       res.redirect("/");
     });
 
+    // Path to to use after successful login
+    app.get("/callback",
+    passport.authenticate("auth0", {
+      failureRedirect: "/login"
+    }),
+    function (req, res) {
+      res.redirect(req.session.returnTo || "/user");
+      console.log(res.user);
+    }
+  );
+
   // Path to logout user
   app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
   });
 
-  // Path to to use after successful login
-  app.get("/callback",
-    passport.authenticate("auth0", {
-      failureRedirect: "/login"
-    }),
-    function (req, res) {
-      res.redirect(req.session.returnTo || "/user");
-    }
-  );
-
   // Get user profile
-  app.get('/', ensureLoggedIn, function (req, res, next) {
-    res.render('index', { // TO BE UPDATED TO PROFILE PAGE ONCE UPDATED
+  app.get('/user', ensureLoggedIn, function (req, res, next) {
+    res.render('userProfile', {
       user: req.user,
       userProfile: JSON.stringify(req.user, null, '  ')
     });
@@ -43,11 +44,6 @@ module.exports = function (app, passport, ensureLoggedIn) {
   // Hospital list selection page
   app.get("/waitER", function (req, res) {
     res.render("waitER");
-  });
-
-  // Page listed after login (currently just the default page until user profile built)
-  app.get("/user", function (req, res) {
-    res.render("index");
   });
 
   // Render 404 page for any unmatched routes
