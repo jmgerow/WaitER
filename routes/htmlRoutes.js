@@ -23,7 +23,6 @@ module.exports = function (app, passport, ensureLoggedIn) {
     }),
     function (req, res) {
       res.redirect(req.session.returnTo || "/user");
-      console.log(res.user);
     }
   );
 
