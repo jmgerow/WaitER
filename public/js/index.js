@@ -1,23 +1,23 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //materialize js initialize
   $(".sidenav").sidenav();
   $("select").formSelect();
   $(".parallax").parallax();
 
   //on click for find hospital button with validation
-  $("#find-hospitals").on("click", function(event) {
+  $("#find-hospitals").on("click", function (event) {
     event.preventDefault();
 
     function validateInput() {
       var isValid = true;
 
-      $(".validate").each(function() {
+      $(".validate").each(function () {
         if ($(this).val() === "") {
           isValid = false;
         }
       });
 
-      $(".select").each(function() {
+      $(".select").each(function () {
         if ($(this).val() === "") {
           isValid = false;
         }
@@ -63,15 +63,54 @@ $(document).ready(function() {
   });
 
   //on click for get started button
-  $("#get-started").on("click", function(event) {
+  $("#get-started").on("click", function (event) {
     event.preventDefault();
     window.location.href = "/login";
   });
 
   //on click for reserve appt button
-  $("#reserve-appt").on("click", function(event) {
+  $("#reserve-appt").on("click", function (event) {
     event.preventDefault();
     window.location.href = "/user";
   });
+
+
+  //function to calculate and display hospital wait times based on number of patients in queue
+  getRushWaitTime();
+
+  function getRushWaitTime() {
+    var waitTime = 30;
+    var $rushWaitTime = $("#rush-wait")
+    var $loyolaWaitTime = $("#loyola-wait")
+    var $northwesternWaitTime = $("#northwestern-wait")
+    var $universityOfChicagoWaitTime = $("#universityOfChicago-wait")
+    $.get("/api/rush", function (data) {
+      var totalWaitTime;
+      rush = data;
+      console.log("rush " + rush.length)
+      totalWaitTime = (waitTime * rush.length)
+      console.log("rush total " + totalWaitTime)
+      $rushWaitTime.prepend(totalWaitTime)
+    });
+    $.get("/api/loyolamedicalcenter", function (data) {
+      var totalWaitTime;
+      loyola = data;
+      totalWaitTime = (waitTime * loyola.length)
+      $loyolaWaitTime.prepend(totalWaitTime)
+    });
+    $.get("/api/northwestern", function (data) {
+      var totalWaitTime;
+      northwestern = data;
+      totalWaitTime = (waitTime * northwestern.length)
+      $northwesternWaitTime.prepend(totalWaitTime)
+    });
+    $.get("/api/universityofchicago", function (data) {
+      var totalWaitTime;
+      chicago = data;
+      totalWaitTime = (waitTime * chicago.length)
+      $universityOfChicagoWaitTime.prepend(totalWaitTime)
+    });
+  };
+
 
 });
