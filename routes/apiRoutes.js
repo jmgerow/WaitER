@@ -19,6 +19,28 @@ module.exports = function (app) {
       });
   });
 
+  //routes for each hospital to calculate wait time
+  app.get("/api/rush", function(req, res) {
+    db.Rush.findAll({}).then(function(dbRush) {
+      res.json(dbRush);
+    });
+  });
+  app.get("/api/loyolamedicalcenter", function(req, res) {
+    db.LoyolaMedicalCenter.findAll({}).then(function(dbLoyolaMedicalCenter) {
+      res.json(dbLoyolaMedicalCenter);
+    });
+  });
+  app.get("/api/northwestern", function(req, res) {
+    db.Northwestern.findAll({}).then(function(dbNorthwestern) {
+      res.json(dbNorthwestern);
+    });
+  });
+  app.get("/api/universityofchicago", function(req, res) {
+    db.UniversityOfChicago.findAll({}).then(function(dbUniversityOfChicago) {
+      res.json(dbUniversityOfChicago);
+    });
+  });
+
 };
 
 
