@@ -42,11 +42,11 @@ $(document).ready(function() {
       };
 
       console.log(userInput);
-      localStorage.clear();
-      localStorage.setItem("firstName", userInput.firstName);
-      localStorage.setItem("lastName", userInput.lastName);
-      localStorage.setItem("zipCode", userInput.zipCode);
-      localStorage.setItem("email", userProfile);
+      // localStorage.clear();
+      // localStorage.setItem("firstName", userInput.firstName);
+      // localStorage.setItem("lastName", userInput.lastName);
+      // localStorage.setItem("zipCode", userInput.zipCode);
+      // localStorage.setItem("email", userProfile);
 
 
       newUser(userInput);
@@ -68,6 +68,7 @@ $(document).ready(function() {
     window.location.href = "/login";
   });
 
+  //on click for reserve appt button
   $("#reserve-appt").on("click", function(event) {
     event.preventDefault();
     window.location.href = "/user";
