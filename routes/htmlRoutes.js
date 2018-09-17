@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app, passport, ensureLoggedIn) {
   // Load index page
   app.get("/", function(req, res) {
-    db.UserInfo.findAll({}).then(function () {
+    db.UserInfo.findAll({}).then(function() {
       res.render("index");
     });
   });
