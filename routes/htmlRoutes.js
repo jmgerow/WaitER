@@ -37,23 +37,16 @@ module.exports = function(app, passport, ensureLoggedIn) {
   });
 
   // Get user profile
-  app.get("/user", ensureLoggedIn, function(req, res, next) {
+  app.get("/user", ensureLoggedIn, function(req, res) {
     res.render("userProfile", {
-      user: JSON.stringify(req.user.displayName, null, "  "),
-      picture: JSON.stringify(req.user.picture, null, "  ")
+      user: req.user.displayName,
+      picture: req.user.picture
     });
-    console.log(JSON.stringify(req.user, null, "  "));
   });
 
   // Hospital list selection page
   app.get("/waitER", ensureLoggedIn, function(req, res) {
-    console.log(req.user);
-    console.log(JSON.stringify(req.user.displayName));
-    res.render("waitER", {
-      user: JSON.stringify(req.user.displayName, null, "  "),
-      picture: JSON.stringify(req.user.picture, null, "  ")
-    });
-    console.log(JSON.stringify(req.user, null, "  "));
+    res.render("waitER");
   });
 
   // Hospital list selection page
