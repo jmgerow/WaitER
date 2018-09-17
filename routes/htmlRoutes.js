@@ -9,26 +9,22 @@ module.exports = function(app, passport, ensureLoggedIn) {
   });
 
   // Start Auth0 Login
-  app.get(
-    "/login",
+  app.get("/login",
     passport.authenticate("auth0", {
       scope: "openid email profile"
     }),
     function(req, res) {
       res.redirect("/");
-    }
-  );
+    });
 
   // Path to to use after successful login
-  app.get(
-    "/callback",
+  app.get("/callback",
     passport.authenticate("auth0", {
       failureRedirect: "/login"
     }),
     function(req, res) {
       res.redirect(req.session.returnTo || "/user");
-    }
-  );
+    });
 
   // Path to logout user
   app.get("/logout", function(req, res) {
@@ -45,8 +41,13 @@ module.exports = function(app, passport, ensureLoggedIn) {
   });
 
   // Hospital list selection page
-  app.get("/waitER", ensureLoggedIn, function(req, res) {
-    res.render("waitER");
+  app.get("/waitER_MAKE_APPOINTMENT", ensureLoggedIn, function(req, res) {
+    res.render("waitER_MAKE_APPOINTMENT");
+  });
+
+  // Hospital list selection page
+  app.get("/waitER_INFO_ONLY", function(req, res) {
+    res.render("waitER_INFO_ONLY");
   });
 
   // Hospital list selection page

@@ -23,7 +23,7 @@
     </ul>
   </div>
 </nav>
-{{!-- sidenav --}}
+
 <ul class="sidenav" id="mobile-demo">
   <li>
     <a href="/">Home</a>
@@ -39,35 +39,49 @@
   </li>
 </ul>
 
-{{!-- hospital info --}}
 <div class="container">
-  <div class="row" id="hospital-title">
-    <img src="images/rush-logo.PNG" height="100px">
+  <div class="row" id="title">
+    Please choose a hospital from the list below:
   </div>
 
-  <div class="row s12" id="hospital-info">
-    <div class="col s12 m6 xl6">
-      <h3>Google Maps goes here</h3>
-    </div>
-    <div class="col s12 m6 xl3">
-      <h3>Wait Time Goes here</h3>
-    </div>
-    <div class="col s12 m6 xl3">
-      <h3>Distance Goes Here</h3>
-    </div>
-  </div>
+  <div class="row s12" id="hospital-display">
+    <table>
+      <thead>
+        <tr>
+          <th>Hospital</th>
+          <th>Location</th>
+          <th>Current Wait Time (min)</th>
+        </tr>
+      </thead>
 
-  <div class="row s12">
-    <button class="btn waves-effect waves-light red darken-3" type="submit" name="action" id="reserve-appt">Reserve
-      Appt. Time
-      <i class="material-icons right">add_box</i>
-    </button>
+      <tbody>
+        <tr>
+          <td><img src="images/nw-logo.PNG" height="75px"></a></td>
+          <td>Chicago, IL</td>
+          <td><div id="northwestern-wait"></div></td>
+        </tr>
+        <tr>
+          <td><img src="images/loyola-logo.PNG" height="75px"></a></td>
+          <td>Maywood, IL</td>
+          <td><div id="loyola-wait"></div></td>
+        </tr>
+        <tr>
+          <td><img src="images/uic-logo.PNG" height="75px"></a></td>
+          <td>Chicago, IL</td>
+          <td><div id="universityOfChicago-wait"></div></td>
+        </tr>
+        <tr>
+          <td><img src="images/rush-logo.PNG" height="75px"></a></td>
+          <td>Chicago, IL</td>
+          <td><div id="rush-wait"></div></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
   </div>
 
 </div>
 
-
-{{!-- footer --}}
 <footer class="page-footer red darken-3">
   <div class="footer-copyright">
     <div class="container">
@@ -76,3 +90,7 @@
     </div>
   </div>
 </footer>
+
+
+
+

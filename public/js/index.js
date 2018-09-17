@@ -54,7 +54,7 @@ $(document).ready(function () {
       // AJAX post to update friends API
       function newUser(userInput) {
         $.post("/api/userinfo", userInput).then(
-          (window.location.href = "/waitER")
+          (window.location.href = "/waitER_MAKE_APPOINTMENT")
         );
       }
     } else {
