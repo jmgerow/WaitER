@@ -39,18 +39,21 @@ module.exports = function(app, passport, ensureLoggedIn) {
   // Get user profile
   app.get("/user", ensureLoggedIn, function(req, res, next) {
     res.render("userProfile", {
-      user: req.user,
-      userProfile: JSON.stringify(req.user, null, "  ")
+      user: JSON.stringify(req.user.displayName, null, "  "),
+      picture: JSON.stringify(req.user.picture, null, "  ")
     });
-    console.log(res.req.user.displayName);
+    console.log(JSON.stringify(req.user, null, "  "));
   });
 
   // Hospital list selection page
   app.get("/waitER", ensureLoggedIn, function(req, res) {
+    console.log(req.user);
+    console.log(JSON.stringify(req.user.displayName));
     res.render("waitER", {
-      user: req.user,
-      userProfile: JSON.stringify(req.user, null, "  ")
+      user: JSON.stringify(req.user.displayName, null, "  "),
+      picture: JSON.stringify(req.user.picture, null, "  ")
     });
+    console.log(JSON.stringify(req.user, null, "  "));
   });
 
   // Hospital list selection page
