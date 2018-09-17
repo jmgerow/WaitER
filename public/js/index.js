@@ -76,9 +76,9 @@ $(document).ready(function () {
 
 
   //function to calculate and display hospital wait times based on number of patients in queue
-  getRushWaitTime();
+  getHospitalWaitTime();
 
-  function getRushWaitTime() {
+  function getHospitalWaitTime() {
     var waitTime = 30;
     var $rushWaitTime = $("#rush-wait")
     var $loyolaWaitTime = $("#loyola-wait")
