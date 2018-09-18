@@ -27,6 +27,18 @@
 
 <body>
   {{{body}}}
+  {{!-- API key for google maps --}}
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLzb7rjOmNo72lC6C5VBrMdQ5rs5rRGzY&callback=initMap" async defer></script>
+{{!-- Initiates the map for Rush Hospital --}}
+      <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: 41.8741337, lng: -87.6712806 },
+            zoom: 15
+          });
+        }
+      </script>
 </body>
 
 </html>
