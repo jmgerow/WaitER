@@ -37,7 +37,7 @@ body {
 }
 
 #reserve-appt {
-  margin-bottom: 140px;
+  margin-top: 400px;
 }
 
 #hospital-display{
@@ -73,7 +73,7 @@ body {
 }
 
 footer {
-  margin-top: 100px;    
+  margin-top: 45px;    
   }
 
 #get-started{
@@ -90,5 +90,13 @@ footer {
   #logo {
   display: none;
   }
+  }
+
+  /* Handles the styling for the map */
+  #map {
+    height: 50%;
+    width: 25%;
+    position: absolute !important;
+    overflow: none !important;
   }
   
