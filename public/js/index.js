@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(".sidenav").sidenav();
   $("select").formSelect();
   $(".parallax").parallax();
-
+  
   //on click for find hospital button with validation
   $("#find-hospitals").on("click", function (event) {
     event.preventDefault();
@@ -87,9 +87,7 @@ $(document).ready(function () {
     $.get("/api/rush", function (data) {
       var totalWaitTime;
       rush = data;
-      console.log("rush " + rush.length)
       totalWaitTime = (waitTime * rush.length)
-      console.log("rush total " + totalWaitTime)
       $rushWaitTime.prepend(totalWaitTime)
     });
     $.get("/api/loyolamedicalcenter", function (data) {

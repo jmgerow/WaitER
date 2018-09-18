@@ -82,6 +82,10 @@ footer {
   /* padding: 20px; */
   }
 
+#profile-display {
+  margin-top: 40px;
+}
+
 @media (max-width: 40em) {
   #logo {
   display: none;
