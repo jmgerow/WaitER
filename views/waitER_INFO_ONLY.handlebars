@@ -45,37 +45,35 @@
   </div>
 
   <div class="row s12" id="hospital-display">
-    <table>
-      <thead>
+    <table id="myTable" class="w3-table-all">
+     
         <tr>
-          <th>Hospital</th>
-          <th>Location</th>
-          <th>Current Wait Time (min)</th>
+          <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(1)')">Hospital Name</th>
+          <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(2)')">Location</th>
+          <th onclick="w3.sortHTML('#myTable','.item', 'td:nth-child(3)')">Current Wait Time (min)</th>
         </tr>
-      </thead>
-
-      <tbody>
-        <tr>
+      
+        <tr class="item">
           <td><img src="images/nw-logo.PNG" height="75px"></a></td>
           <td>Chicago, IL</td>
-          <td><div id="northwestern-wait"></div></td>
+          <td id="northwestern-wait"></td>
         </tr>
-        <tr>
+        <tr class="item">
           <td><img src="images/loyola-logo.PNG" height="75px"></a></td>
           <td>Maywood, IL</td>
-          <td><div id="loyola-wait"></div></td>
+          <td id="loyola-wait"></td>
         </tr>
-        <tr>
+        <tr class="item">
           <td><img src="images/uic-logo.PNG" height="75px"></a></td>
           <td>Chicago, IL</td>
-          <td><div id="universityOfChicago-wait"></div></td>
+          <td id="universityOfChicago-wait"></td>
         </tr>
-        <tr>
+        <tr class="item">
           <td><img src="images/rush-logo.PNG" height="75px"></a></td>
           <td>Chicago, IL</td>
-          <td><div id="rush-wait"></div></td>
+          <td id="rush-wait"></td>
         </tr>
-      </tbody>
+      
     </table>
     <hr>
   </div>
