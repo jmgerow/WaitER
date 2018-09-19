@@ -92,7 +92,7 @@ footer {
   }
 
   /* Handles the styling for the map */
-  #map {
+   .maps {
     height: 400px;
     width: 400px;
     position: relative !important;
