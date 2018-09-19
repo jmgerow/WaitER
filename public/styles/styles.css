@@ -37,6 +37,7 @@ body {
 
 #reserve-appt {
   margin-top: 30px;
+  margin-bottom: 100px;
 }
 
 #hospital-display{
@@ -100,7 +101,7 @@ footer {
   }
 
 .page-footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
