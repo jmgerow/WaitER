@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(".sidenav").sidenav();
   $("select").formSelect();
   $(".parallax").parallax();
-  
+
   //on click for find hospital button with validation
   $("#find-hospitals").on("click", function (event) {
     event.preventDefault();
@@ -72,6 +72,7 @@ $(document).ready(function () {
   $("#reserve-appt").on("click", function (event) {
     event.preventDefault();
     window.location.href = "/user";
+    $loyolaWaitTime = $("#loyola-wait")
   });
 
 
@@ -109,4 +110,43 @@ $(document).ready(function () {
       $universityOfChicagoWaitTime.prepend(totalWaitTime)
     });
   };
+
+  // $("#nw-map-init").on("click", function (nwMap) {
+  //   event.preventDefault();
+  //   window.location.href = "/northwestern";
+    
+    
+  // });
+  //google maps
+  // initLoyolaMap();
+  // initNWMap();
+  // initRushMap()
+  // initUCMap()
+  // var rushMap;
+
+  // function initRushMap() {
+  //   rushMap = new google.maps.Map(document.getElementById('rushMap'), {
+  //     center: { lat: 41.8741337, lng: -87.6712806 },
+  //     zoom: 15
+  //   });
+  // };
+  // function initNWMap() {
+  //   nwMap = new google.maps.Map(document.getElementById('nwMap'), {
+  //     center: { lat: 41.8741337, lng: -87.6712806 },
+  //     zoom: 15
+  //   });
+  // };
+  // function initLoyolaMap() {
+  //   map = new google.maps.Map(document.getElementById('loyolaMap'), {
+  //     center: { lat: 41.8741337, lng: -87.6712806 },
+  //     zoom: 15
+  //   });
+  // };
+  // function initUCMap() {
+  //   map = new google.maps.Map(document.getElementById('ucMap'), {
+  //     center: { lat: 41.8741337, lng: -87.6712806 },
+  //     zoom: 15
+  //   });
+  // };
+
 });
