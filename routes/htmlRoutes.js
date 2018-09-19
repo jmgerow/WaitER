@@ -36,8 +36,7 @@ module.exports = function(app, passport, ensureLoggedIn) {
   app.get("/user", ensureLoggedIn, function(req, res) {
     res.render("userProfile", {
       user: req.user.displayName,
-      // picture: req.user.picture
-      picture: "images/waiterprofileTest.png"
+      picture: req.user.picture
     });
   });
 
