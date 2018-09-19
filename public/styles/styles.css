@@ -98,4 +98,11 @@ footer {
     position: relative !important;
     overflow: none !important;
   }
-  
+
+.page-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+  }
