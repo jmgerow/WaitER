@@ -50,14 +50,15 @@
   {{!-- div for map --}}
   <div class="row">
     <div class="col s12 m6 maps" id="loyolaMap">
-      <h3>Google Maps goes here</h3>
     </div>
     <div class="col s12 m6">
-      <h4>The current wait time for Loyola is <i id="loyola-wait"></i> minutes.</h4>
+      <div class="row center" id="hospital-page-wait-title">
+        Current wait time for this hospital:
+      </div>
+      <div class="row center" id="wait-time-display">
+        <i id="loyola-wait"></i> minutes.
+      </div>
     </div>
-    {{!-- <div class="col s12 m3">
-      <h3>Distance Goes Here</h3>
-    </div> --}}
   </div>
 
   <div class="row s12">

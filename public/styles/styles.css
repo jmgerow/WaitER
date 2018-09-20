@@ -2,6 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .list-group-item {
@@ -106,4 +107,21 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: left;
+  }
+
+  #hospital-page-wait-title {
+    /* background: lightblue; */
+    color: rgb(153, 22, 22);
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 40px;
+  }
+
+  #wait-time-display {
+    background: rgb(238, 238, 238);
+    color: rgb(153, 22, 22);
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 40px;
+    border-radius: 15px;
   }
