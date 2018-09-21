@@ -23,7 +23,7 @@ module.exports = function(app, passport, ensureLoggedIn) {
       failureRedirect: "/login"
     }),
     function(req, res) {
-      res.redirect(req.session.returnTo || "/user");
+      res.redirect("/user");
     });
 
   // Path to logout user
