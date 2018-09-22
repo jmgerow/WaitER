@@ -133,9 +133,22 @@ $(document).ready(function () {
 
   };
 
-//time calculation
+  calculateApptTime();
 
-var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+  function calculateApptTime() {
+    var currentTime = moment();
+    $.get("/api/userappt", function (data) {
+      // var selectedWaitTime = (data[0].waitTime);
+      // var formatWaitTime = (moment.utc().startOf('day').add(selectedWaitTime, 'minutes').format("hh:mm"));
+      // var formatCurrentTime = (moment(currentTime).format("hh:mm"));
+      
+      // var estimatedApptTime = moment().add(formatWaitTime, "h");
+      
+      
+      $("#appt-profile").text(moment(currentTime).format("hh:mm"));
 
+    });
+
+    
+  };
 });
