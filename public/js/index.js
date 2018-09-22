@@ -130,7 +130,12 @@ $(document).ready(function () {
       url: "/api/userappt/"
     })
       .then(getUserAppt);
-  
+
   };
+
+//time calculation
+
+var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
 });

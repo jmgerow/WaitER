@@ -92,6 +92,10 @@ footer {
   #logo {
   display: none;
   }
+  .parallax-container {
+    height: 350px;
+    margin-bottom: 150px;
+  }
   }
 
   /* Handles the styling for the map */
