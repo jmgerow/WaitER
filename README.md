@@ -1,4 +1,4 @@
-![Logo](images/waitER-logo.PNGraw=true "Title")
+![Logo](public/images/waitER-logo.PNGraw=true "Title")
 
 # Welcome to WaitER!
 
@@ -19,19 +19,19 @@ WaitER is an application designed to allow users to search current hospital emer
 ## Getting Started
 * This is the Homepage of WaitER. Here users can Log-in through the "Get Started" button.
 
-![Home Page](images/readme1.PNG?raw=true "Title")
+![Home Page](public/images/readme1.PNG?raw=true "Title")
 
 * This is the profile page. Once logged in, the user may search for hospitals using the form on the right.
 
-![Profile Page](images/readme2.PNG?raw=true "Title")
+![Profile Page](public/images/readme2.PNG?raw=true "Title")
 
 * This is where the user will see their list of hospitals. Select a hospital to see their current emergency wait times.
 
-![List of Hospitals Page](images/readme3.PNG?raw=true "Title")
+![List of Hospitals Page](public/images/readme3.PNG?raw=true "Title")
 
 * This page will show current wait times for the hospital selected. Click on the "Reserve Appt. Time" button to set up an appointment!
 
-![Current Wait Times for NW Hospital](images/readme4.PNG?raw=true "Title")
+![Current Wait Times for NW Hospital](public/images/readme4.PNG?raw=true "Title")
 
 ## Acknowledgments
 
