@@ -68,13 +68,6 @@ $(document).ready(function () {
     window.location.href = "/login";
   });
 
-  //on click for reserve appt button
-  $("#reserve-appt").on("click", function (event) {
-    event.preventDefault();
-    window.location.href = "/user";
-    $loyolaWaitTime = $("#loyola-wait")
-  });
-
 
   //function to calculate and display hospital wait times based on number of patients in queue
   getHospitalWaitTime();
@@ -111,42 +104,18 @@ $(document).ready(function () {
     });
   };
 
-  // $("#nw-map-init").on("click", function (nwMap) {
-  //   event.preventDefault();
-  //   window.location.href = "/northwestern";
-    
-    
-  // });
-  //google maps
-  // initLoyolaMap();
-  // initNWMap();
-  // initRushMap()
-  // initUCMap()
-  // var rushMap;
 
-  // function initRushMap() {
-  //   rushMap = new google.maps.Map(document.getElementById('rushMap'), {
-  //     center: { lat: 41.8741337, lng: -87.6712806 },
-  //     zoom: 15
-  //   });
-  // };
-  // function initNWMap() {
-  //   nwMap = new google.maps.Map(document.getElementById('nwMap'), {
-  //     center: { lat: 41.8741337, lng: -87.6712806 },
-  //     zoom: 15
-  //   });
-  // };
-  // function initLoyolaMap() {
-  //   map = new google.maps.Map(document.getElementById('loyolaMap'), {
-  //     center: { lat: 41.8741337, lng: -87.6712806 },
-  //     zoom: 15
-  //   });
-  // };
-  // function initUCMap() {
-  //   map = new google.maps.Map(document.getElementById('ucMap'), {
-  //     center: { lat: 41.8741337, lng: -87.6712806 },
-  //     zoom: 15
-  //   });
-  // };
+  //function to load appt times to user profile
+  getUserAppt();
+
+  function getUserAppt() {
+    $.get("/api/userappt", function (data) {
+      userAppts = data;      
+      $("#hospital-profile").text(data[0].hospitalName);
+      $("#wait-profile").text(data[0].waitTime);
+    
+    });
+  };
+
 
 });

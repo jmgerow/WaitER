@@ -1,3 +1,6 @@
+<script src="/js/loyolaMap.js"></script>
+<script src="/js/index.js"></script>
+
 {{!-- navbar --}}
 <nav class="white">
   <div class="container nav-wrapper white">
@@ -56,15 +59,17 @@
         <table style="width:100%">
           <tr>
             <th>Hospital Name</th>
-            <th>Appointment Date</th>
+            <th>Wait Time</th>
             <th>Appointment Time</th>
           </tr>
           <tr>
-            <td>Rush</td>
-            <td id="Profile-wait"></td>
+            <td id="hospital-profile"></td>
+            <td id="wait-profile"></td>
             <td>10:00AM</td>
           </tr>
-
+          <button class="btn waves-effect waves-light red darken-3" type="submit" name="action" id="delete-appts">Delete
+            Appts
+          </button>
         </table>
       </div>
 
@@ -139,3 +144,4 @@
     </div>
   </div>
 </footer>
+

@@ -19,6 +19,19 @@ module.exports = function (app) {
       });
   });
 
+  //route to post userappts  
+  app.post("/api/userappt", function (req, res) {
+    console.log('req', req.body.waitTime)
+    db.UserAppt.create({
+      hospitalName: req.body.hospitalName,
+      waitTime: req.body.waitTime
+    })
+      .then(function (dbUserAppt) {
+        res.json(dbUserAppt);
+        console.log('dbUserAppt', dbUserAppt)
+      });
+  });
+
   //routes for each hospital to calculate wait time
   app.get("/api/rush", function(req, res) {
     db.Rush.findAll({}).then(function(dbRush) {
@@ -38,6 +51,13 @@ module.exports = function (app) {
   app.get("/api/universityofchicago", function(req, res) {
     db.UniversityOfChicago.findAll({}).then(function(dbUniversityOfChicago) {
       res.json(dbUniversityOfChicago);
+    });
+  });
+
+  //route to get appt data
+  app.get("/api/userappt", function(req, res) {
+    db.UserAppt.findAll({}).then(function(UserAppt) {
+      res.json(UserAppt);
     });
   });
 
