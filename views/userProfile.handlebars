@@ -15,7 +15,11 @@
         <a href="/" class="nav-link">Home</a>
       </li>
       <li>
-        <a href="/login" class="nav-link">Log In</a>
+        {{#if loggedIn}}
+          <a href="/logout" class="nav-link">Log Out</a>
+        {{else}}
+          <a href="/user" class="nav-link">Log In</a>
+        {{/if}}
       </li>
       <li>
         <a href="/user" class="nav-link">My Profile</a>
@@ -32,8 +36,11 @@
     <a href="/">Home</a>
   </li>
   <li>
-    </div>
-    <a href="/login">Log In</a>
+    {{#if loggedIn}}
+      <a href="/logout" class="nav-link">Log Out</a>
+    {{else}}
+      <a href="/user" class="nav-link">Log In</a>
+    {{/if}}
   </li>
   <li>
     <a href="/user">My Profile</a>
@@ -48,8 +55,8 @@
   <div class="row" id="profile-display">
     <div class="col s12 m6">
       <div class="user-profile">
-        <img src="images/waiterprofileTest.png" height="250" alt="avatar">
-        <h6>{{user}}</h6>
+        <img src={{picture}} height="250" width="250" alt="avatar">
+        <h6>Hello, {{user}}</h6>
 
         <br>
 
