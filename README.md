@@ -1,4 +1,4 @@
-![Logo](public/images/waitER-logo.PNGraw=true "Title")
+![Logo](public/images/waitER-logo.PNG?raw=true "Title")
 
 # Welcome to WaitER!
 
