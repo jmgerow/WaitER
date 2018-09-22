@@ -7,6 +7,7 @@ module.exports = function(app) {
       res.render("index");
     });
   });
+
   // module.exports = function(app, passport, ensureLoggedIn) {
   // // Load index page
   // app.get("/", function(req, res) {
@@ -25,18 +26,18 @@ module.exports = function(app) {
   //     res.redirect("/");
   //   }
   // );
-  //
+  
   // // Path to to use after successful login
   // app.get(
   //   "/callback",
   //   passport.authenticate("auth0", {
-  //     failureRedirect: "/login"
+  //     failureRedirect: "/"
   //   }),
   //   function(req, res) {
   //     res.redirect("/user");
   //   }
   // );
-  //
+  
   // // Path to logout user
   // app.get("/logout", function(req, res) {
   //   req.logout();
@@ -44,15 +45,22 @@ module.exports = function(app) {
   // });
 
   // Get user profile
-  app.get("/user", function(req, res) {
-    res.render("userProfile", {
-      user: req.user,
-      picture: req.user
-    });
+  app.get("/user", 
+    // ensureLoggedIn, 
+    function(req, res) {
+    res.render("userProfile"
+    // , {
+      // user: req.user.displayName,
+      // picture: req.user.picture,
+      // loggedIn: res.locals.loggedIn
+    // }
+    );
   });
 
   // Hospital list selection page
-  app.get("/waitER_MAKE_APPOINTMENT", function(req, res) {
+  app.get("/waitER_MAKE_APPOINTMENT", 
+    // ensureLoggedIn, 
+    function(req, res) {
     res.render("waitER_MAKE_APPOINTMENT");
   });
 
@@ -62,22 +70,30 @@ module.exports = function(app) {
   });
 
   // Hospital list selection page
-  app.get("/northwestern", function(req, res) {
+  app.get("/northwestern", 
+    // ensureLoggedIn, 
+    function(req, res) {
     res.render("northwestern");
   });
 
   // Hospital list selection page
-  app.get("/rush", function(req, res) {
+  app.get("/rush", 
+    // ensureLoggedIn, 
+    function(req, res) {
     res.render("rush");
   });
 
   // Hospital list selection page
-  app.get("/loyolaMedicalCenter", function(req, res) {
+  app.get("/loyolaMedicalCenter", 
+    // ensureLoggedIn, 
+    function(req, res) {
     res.render("loyolaMedicalCenter");
   });
 
   // Hospital list selection page
-  app.get("/universityOfChicago", function(req, res) {
+  app.get("/universityOfChicago", 
+    // ensureLoggedIn, 
+    function(req, res) {
     res.render("universityOfChicago");
   });
 

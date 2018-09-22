@@ -17,16 +17,10 @@ function initRushMap() {
         hospitalName: ("Rush"),
         waitTime: totalWaitTime
       };
-  
-      newAppt(userAppt);
-      
+
+      $.post("api/userappt", userAppt)
       
     });
-  
-    function newAppt(userAppt) {
-        
-      $.post("api/userappt", userAppt)
-    }
   };
   
   $(document).ready(function () {
@@ -36,8 +30,15 @@ function initRushMap() {
     $("#rush-reserve-appt").click(function (event) {
       event.preventDefault();
       reserveRushAppt()
+
+      var newAppt = {
+        patientFirst: localStorage.getItem("patientFirst"),
+        patientLast: localStorage.getItem("patientLast"),
+        patientInsurance: localStorage.getItem("patientInsurance"),
+        reasonForVisit: localStorage.getItem("reasonForVisit"),
+      };
+  
+      $.post("api/rush", newAppt)
       window.location.href = "/user";
-  
     });
-  
   });
