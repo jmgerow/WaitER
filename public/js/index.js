@@ -65,7 +65,7 @@ $(document).ready(function () {
   //on click for get started button
   $("#get-started").on("click", function (event) {
     event.preventDefault();
-    window.location.href = "/login";
+    window.location.href = "/user";
   });
 
 
