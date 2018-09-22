@@ -2,7 +2,6 @@
   "development": {
     "username": "root",
     "password": "password",
-    "port": 330,
     "database": "waitER",
     "host": "localhost",
     "dialect": "mysql"
