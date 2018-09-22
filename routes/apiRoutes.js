@@ -1,10 +1,7 @@
 var db = require("../models");
 
-
-module.exports = function (app) {
-
-
-  app.post("/api/userinfo", function (req, res) {
+module.exports = function(app) {
+  app.post("/api/userinfo", function(req, res) {
     db.UserInfo.create({
       patientFirst: req.body.firstName,
       patientLast: req.body.lastName,
@@ -13,10 +10,9 @@ module.exports = function (app) {
       patientInsurance: req.body.insuranceProvider,
       reasonForVisit: req.body.reasonForVisit,
       zipCode: req.body.zipCode
-    })
-      .then(function (dbUserInfo) {
-        res.json(dbUserInfo);
-      });
+    }).then(function(dbUserInfo) {
+      res.json(dbUserInfo);
+    });
   });
 
   //routes for each hospital to calculate wait time
@@ -40,8 +36,4 @@ module.exports = function (app) {
       res.json(dbUniversityOfChicago);
     });
   });
-
 };
-
-
-
