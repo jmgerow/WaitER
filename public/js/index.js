@@ -110,12 +110,27 @@ $(document).ready(function () {
 
   function getUserAppt() {
     $.get("/api/userappt", function (data) {
-      userAppts = data;      
+      userAppts = data;
       $("#hospital-profile").text(data[0].hospitalName);
       $("#wait-profile").text(data[0].waitTime);
-    
+
     });
   };
 
+  // delete button for removing appts
+  $("#delete-appts").click(function (event) {
+    event.preventDefault();
+    deleteUserAppt();
+  });
+
+
+  function deleteUserAppt() {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/userappt/"
+    })
+      .then(getUserAppt);
+  
+  };
 
 });
