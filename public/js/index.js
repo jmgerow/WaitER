@@ -37,17 +37,17 @@ $(document).ready(function () {
         zipCode: $("#zip_code")
           .val()
           .trim(),
-        reasonForVisit: $("#reasonForVisit").val(),
-        insuranceProvider: $("#insurance-provider").val()
+        reasonForVisit: $("#reasonForVisit").val().trim(),
+        insuranceProvider: $("#insurance-provider").val().trim()
       };
 
-      console.log(userInput);
-      // localStorage.clear();
-      // localStorage.setItem("firstName", userInput.firstName);
-      // localStorage.setItem("lastName", userInput.lastName);
-      // localStorage.setItem("zipCode", userInput.zipCode);
-      // localStorage.setItem("email", userProfile);
-
+  console.log(userInput);
+      localStorage.clear();
+      localStorage.setItem("patientFirst", userInput.firstName);
+      localStorage.setItem("patientLast", userInput.lastName);
+      localStorage.setItem("zipCode", userInput.zipCode);
+      localStorage.setItem("reasonForVisit", userInput.reasonForVisit);
+      localStorage.setItem("patientInsurance", userInput.insuranceProvider);
 
       newUser(userInput);
 

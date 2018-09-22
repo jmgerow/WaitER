@@ -14,7 +14,11 @@
         <a href="/" class="nav-link">Home</a>
       </li>
       <li>
-        <a href="/login" class="nav-link">Log In</a>
+        {{#if loggedIn}}
+          <a href="/logout" class="nav-link">Log Out</a>
+        {{else}}
+          <a href="/user" class="nav-link">Log In</a>
+        {{/if}}
       </li>
       <li>
         <a href="/user" class="nav-link">My Profile</a>
@@ -31,7 +35,11 @@
     <a href="/">Home</a>
   </li>
   <li>
-    <a href="/login">Log In</a>
+    {{#if loggedIn}}
+      <a href="/logout" class="nav-link">Log Out</a>
+    {{else}}
+      <a href="/user" class="nav-link">Log In</a>
+    {{/if}}
   </li>
   <li>
     <a href="/user">My Profile</a>

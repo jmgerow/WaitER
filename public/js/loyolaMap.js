@@ -18,15 +18,8 @@ function reserveLoyolaAppt() {
       waitTime: totalWaitTime
     };
 
-    newAppt(userAppt);
-    
-    
+    $.post("api/userappt", userAppt);
   });
-
-  function newAppt(userAppt) {
-      
-    $.post("api/userappt", userAppt)
-  }
 };
 
 $(document).ready(function () {
@@ -35,9 +28,16 @@ $(document).ready(function () {
   //on click for reserve appt button
   $("#loyola-reserve-appt").click(function (event) {
     event.preventDefault();
-    reserveLoyolaAppt()
+    reserveLoyolaAppt();
+
+    var newAppt = {
+      patientFirst: localStorage.getItem("patientFirst"),
+      patientLast: localStorage.getItem("patientLast"),
+      patientInsurance: localStorage.getItem("patientInsurance"),
+      reasonForVisit: localStorage.getItem("reasonForVisit"),
+    };
+
+    $.post("api/loyolamedicalcenter", newAppt)
     window.location.href = "/user";
-
   });
-
 });
