@@ -50,4 +50,11 @@ module.exports = function(app) {
     });
   });
 
+  //route to get appt data
+  app.get("/api/userappt", function(req, res) {
+    db.UserAppt.findAll({}).then(function(UserAppt) {
+      res.json(UserAppt);
+    });
+  });
+
 };
