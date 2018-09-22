@@ -19,15 +19,9 @@ function reserveNorthwesternAppt() {
       waitTime: totalWaitTime
     };
 
-    newAppt(userAppt);
-
+    $.post("api/userappt", userAppt)
 
   });
-
-  function newAppt(userAppt) {
-
-    $.post("api/userappt", userAppt)
-  }
 };
 
 $(document).ready(function () {
@@ -37,8 +31,15 @@ $(document).ready(function () {
   $("#northwestern-reserve-appt").click(function (event) {
     event.preventDefault();
     reserveNorthwesternAppt()
+
+    var newAppt = {
+      patientFirst: localStorage.getItem("patientFirst"),
+      patientLast: localStorage.getItem("patientLast"),
+      patientInsurance: localStorage.getItem("patientInsurance"),
+      reasonForVisit: localStorage.getItem("reasonForVisit"),
+    };
+
+    $.post("api/northwestern", newAppt)
     window.location.href = "/user";
-
   });
-
 });

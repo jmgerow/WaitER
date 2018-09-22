@@ -19,15 +19,9 @@ function reserveUCAppt() {
       waitTime: totalWaitTime
     };
 
-    newAppt(userAppt);
-
+    $.post("api/userappt", userAppt)
 
   });
-
-  function newAppt(userAppt) {
-
-    $.post("api/userappt", userAppt)
-  }
 };
 
 $(document).ready(function () {
@@ -37,8 +31,15 @@ $(document).ready(function () {
   $("#uc-reserve-appt").click(function (event) {
     event.preventDefault();
     reserveUCAppt()
+
+    var newAppt = {
+      patientFirst: localStorage.getItem("patientFirst"),
+      patientLast: localStorage.getItem("patientLast"),
+      patientInsurance: localStorage.getItem("patientInsurance"),
+      reasonForVisit: localStorage.getItem("reasonForVisit"),
+    };
+
+    $.post("api/universityofchicago", newAppt)
     window.location.href = "/user";
-
   });
-
 });

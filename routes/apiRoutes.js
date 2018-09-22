@@ -15,6 +15,54 @@ module.exports = function(app) {
     });
   });
 
+  // Route to post userinformation into the Loyola Medical Center table
+  app.post("/api/loyolamedicalcenter", function(req, res) {
+    db.LoyolaMedicalCenter.create({
+      patientFirst: req.body.patientFirst,
+      patientLast: req.body.patientLast,
+      patientInsurance: req.body.reasonForVisit,
+      reasonForVisit: req.body.patientInsurance,
+    }).then(function(dbLoyolaMedicalCenter) {
+      res.json(dbLoyolaMedicalCenter);
+    });
+  });
+
+  // Route to post userinformation into the University of Chicago table
+  app.post("/api/universityofchicago", function(req, res) {
+    db.UniversityOfChicago.create({
+      patientFirst: req.body.patientFirst,
+      patientLast: req.body.patientLast,
+      patientInsurance: req.body.reasonForVisit,
+      reasonForVisit: req.body.patientInsurance,
+    }).then(function(dbUniversityOfChicago) {
+      res.json(dbUniversityOfChicago);
+    });
+  });
+
+  // Route to post userinformation into the Northwestern table
+  app.post("/api/northwestern", function(req, res) {
+    db.Northwestern.create({
+      patientFirst: req.body.patientFirst,
+      patientLast: req.body.patientLast,
+      patientInsurance: req.body.reasonForVisit,
+      reasonForVisit: req.body.patientInsurance,
+    }).then(function(dbNorthwestern) {
+      res.json(dbNorthwestern);
+    });
+  });
+
+  // Route to post userinformation into the Rush table
+  app.post("/api/rush", function(req, res) {
+    db.Rush.create({
+      patientFirst: req.body.patientFirst,
+      patientLast: req.body.patientLast,
+      patientInsurance: req.body.reasonForVisit,
+      reasonForVisit: req.body.patientInsurance,
+    }).then(function(dbRush) {
+      res.json(dbRush);
+    });
+  });
+
   //route to post userappts  
   app.post("/api/userappt", function (req, res) {
     console.log('req', req.body.waitTime)
