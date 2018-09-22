@@ -23,7 +23,7 @@ var db = require("../models");
   app.get(
     "/callback",
     passport.authenticate("auth0", {
-      failureRedirect: "/login"
+      failureRedirect: "/"
     }),
     function(req, res) {
       res.redirect("/user");
