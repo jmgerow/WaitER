@@ -48,11 +48,13 @@ module.exports = function(app) {
   app.get("/user", 
     // ensureLoggedIn, 
     function(req, res) {
-    res.render("userProfile", {
-      user: req.user.displayName,
-      picture: req.user.picture,
-      loggedIn: res.locals.loggedIn
-    });
+    res.render("userProfile"
+    // , {
+      // user: req.user.displayName,
+      // picture: req.user.picture,
+      // loggedIn: res.locals.loggedIn
+    // }
+    );
   });
 
   // Hospital list selection page
