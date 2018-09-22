@@ -57,4 +57,12 @@ module.exports = function(app) {
     });
   });
 
+  //route to delete appts
+  app.delete("/api/userappt", function(req, res) {
+    db.UserAppt.destroy({
+      where: {}
+    }).then(function(dbUserAppt) {
+      res.json(dbUserAppt);
+    });
+  });
 };
