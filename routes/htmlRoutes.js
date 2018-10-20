@@ -30,6 +30,16 @@ var db = require("../models");
     }
   );
   
+  app.get(
+    "https://warm-eyrie-57570.herokuapp.com/callback",
+    passport.authenticate("auth0", {
+      failureRedirect: "/login"
+    }),
+    function(req, res) {
+      res.redirect("/user");
+    }
+  );
+  
   // Path to logout user
   app.get("/logout", function(req, res) {
     req.logout();
